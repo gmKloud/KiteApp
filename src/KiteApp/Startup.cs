@@ -11,6 +11,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore;
 using KiteApp.Models;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 
 namespace KiteApp
 {
@@ -28,29 +29,22 @@ namespace KiteApp
         {
             services.AddMvc();
             services.AddEntityFramework()
-                .AddDbContext<KiteAppContext>(options =>
-                    options.UseSqlServer(Configuration["ConnectionStrings:DefaultConnection"])); services.AddEntityFramework()
-                 .AddDbContext<KiteAppContext>(options =>
-                     options.UseSqlServer(Configuration["ConnectionStrings:DefaultConnection"]));
+                .AddDbContext<ApplicationDbContext>(options =>
+                    options.UseSqlServer(Configuration["ConnectionStrings:DefaultConnection"]));
+            services.AddIdentity<ApplicationUser, IdentityRole>()
+                .AddEntityFrameworkStores<ApplicationDbContext>()
+                .AddDefaultTokenProviders();
         }
 
-        // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
+        public void Configure(IApplicationBuilder app)
         {
-            loggerFactory.AddConsole();
-
-            if (env.IsDevelopment())
-            {
-                app.UseDeveloperExceptionPage();
-            }
-
+            app.UseIdentity();
             app.UseMvc(routes =>
             {
                 routes.MapRoute(
                     name: "default",
-                    template: "{controller=Home}/{action=Index}/{id?}");
+                    template: "{controller=Account}/{action=Index}/{id?}");
             });
-
             app.Run(async (context) =>
             {
                 await context.Response.WriteAsync("Hello World!");
@@ -58,3 +52,4 @@ namespace KiteApp
         }
     }
 }
+
