@@ -13,5 +13,4 @@ namespace KiteApp.Controllers
             return View();
         }
     }
-}}
 }

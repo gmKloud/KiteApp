@@ -1,0 +1,23 @@
+﻿@{
+    ViewData["KiteApp"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@using System.Security.Claims
+
+@if (User.Identity.IsAuthenticated)
+{
+    <h2>Hello, <span>@User.Identity.Name!</span> Welcome to KiteApp</h2>
+
+
+
+    //Put all search and list of search here... put a partial view...
+
+
+}
+else
+{
+    <h3>Register With KiteApp!</h3>
+}
+
+<p>A picture that looks nice</p>
