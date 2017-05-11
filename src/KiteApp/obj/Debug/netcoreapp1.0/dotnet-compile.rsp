@@ -1,5 +1,5 @@
---temp-output:C:\Users\epicodus\Documents\Visual Studio 2015\Projects\KiteApp\src\KiteApp\obj\Debug\netcoreapp1.0\
---out:C:\Users\epicodus\Documents\Visual Studio 2015\Projects\KiteApp\src\KiteApp\bin\Debug\netcoreapp1.0\KiteApp.dll
+--temp-output:C:\Users\epicodus\desktop\kite-app\src\KiteApp\obj\Debug\netcoreapp1.0\
+--out:C:\Users\epicodus\desktop\kite-app\src\KiteApp\bin\Debug\netcoreapp1.0\KiteApp.dll
 --define:DEBUG
 --define:TRACE
 --define:NETCOREAPP1_0
@@ -208,7 +208,13 @@
 --reference:C:\Users\epicodus\.nuget\packages\System.Xml.XDocument\4.3.0\ref\netstandard1.3\System.Xml.XDocument.dll
 --reference:C:\Users\epicodus\.nuget\packages\System.Xml.XmlDocument\4.3.0\ref\netstandard1.3\System.Xml.XmlDocument.dll
 --reference:C:\Users\epicodus\.nuget\packages\System.Xml.XmlSerializer\4.0.11\ref\netstandard1.3\System.Xml.XmlSerializer.dll
---resource:"C:\Users\epicodus\Documents\Visual Studio 2015\Projects\KiteApp\src\KiteApp\obj\Debug\netcoreapp1.0\KiteAppdotnet-compile.deps.json",KiteApp.deps.json
-C:\Users\epicodus\Documents\Visual Studio 2015\Projects\KiteApp\src\KiteApp\Program.cs
-C:\Users\epicodus\Documents\Visual Studio 2015\Projects\KiteApp\src\KiteApp\Startup.cs
-C:\Users\epicodus\Documents\Visual Studio 2015\Projects\KiteApp\src\KiteApp\Models\KiteAppContext.cs
+--resource:"C:\Users\epicodus\desktop\kite-app\src\KiteApp\obj\Debug\netcoreapp1.0\KiteAppdotnet-compile.deps.json",KiteApp.deps.json
+C:\Users\epicodus\desktop\kite-app\src\KiteApp\Program.cs
+C:\Users\epicodus\desktop\kite-app\src\KiteApp\Startup.cs
+C:\Users\epicodus\desktop\kite-app\src\KiteApp\Migrations\20170511161432_Initial.cs
+C:\Users\epicodus\desktop\kite-app\src\KiteApp\Migrations\20170511161432_Initial.Designer.cs
+C:\Users\epicodus\desktop\kite-app\src\KiteApp\Migrations\ApplicationDbContextModelSnapshot.cs
+C:\Users\epicodus\desktop\kite-app\src\KiteApp\Models\ApplicationDbContext.cs
+C:\Users\epicodus\desktop\kite-app\src\KiteApp\Models\ApplicationUser.cs
+C:\Users\epicodus\desktop\kite-app\src\KiteApp\Models\Kite.cs
+C:\Users\epicodus\desktop\kite-app\src\KiteApp\Models\WSpeed.cs

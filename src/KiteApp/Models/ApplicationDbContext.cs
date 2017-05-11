@@ -13,5 +13,13 @@ namespace KiteApp.Models
         {
 
         }
+
+        protected override void OnModelCreating(ModelBuilder builder)
+        {
+            base.OnModelCreating(builder);
+        }
+
+        //public DbSet<Type> Types { get; set; }
+        //public DbSet<WSpeed> WSpeeds { get; set; }
     }
 }
