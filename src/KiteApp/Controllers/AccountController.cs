@@ -74,5 +74,10 @@ namespace KiteApp.Controllers
             return RedirectToAction("Index");
         }
 
+        public IActionResult SearchPage()
+        {
+            return View();
+        }
+
     }
 }
