@@ -4,15 +4,16 @@
 @{
 }
 
+@model KiteApp.Models.Location
 
 <h1>HEY! Ajax called.</h1>
 
-<form class="searchZip">
-    
-    <label>Zip</label>
-    <input type="text"/>
+<form class="wind-speed-req" method="post">
 
-    <button class="searched btn btn-primary">Fly!</button>
+    <label for="Zip">Zip Code</label>
+    <input type="text" name="Zip" required/>
+
+    <button class="ZipSearchAcn btn btn-primary" type="submit">Fly!</button>
 </form>
 
-<div id="searchResults"></div>
+<div id="speed-list-submit"></div>

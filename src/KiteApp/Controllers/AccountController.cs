@@ -79,5 +79,18 @@ namespace KiteApp.Controllers
             return View();
         }
 
+        //[HttpPost]
+        //public IActionResult WindSpeedReq(Location newZipReq)
+        //{
+        //    newZipReq.Send();
+        //    var zipSearch = newZipReq;
+        //    return Json(zipSearch);
+        //}
+
+        public IActionResult SpeedList()
+        {
+            return View();
+        }
+
     }
 }

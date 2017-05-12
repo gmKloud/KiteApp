@@ -11,34 +11,43 @@ namespace KiteApp.Models
 {
     public class Location
     {
-        public int Zip { get; set; }
-        public string City { get; set; }
-        public string State { get; set; }
-        public string CountryCode { get; set; }
+        public string Zip { get; set; }
+        public string Wind { get; set; }
+        public string Speed { get; set; }
+        //public string City { get; set; }
+        //public string State { get; set; }
+        //public string CountryCode { get; set; }
 
-        public static List<Location> GetLocations()
+        public Location (string zip)
         {
-            var client = new RestClient("httttpp"); // fill in correct http
-            var request = new RestRequest("request of site and how it works", Method.GET);
-            client.Authenticator = new HttpBasicAuthenticator("{{Account SID}}", "{{Auth Token}}"); //Fill these in with weather APp info
+            Zip = zip;
+        }
+
+        public List<Location> GetSpeeds()
+        {
+            var client = new RestClient("http://api.openweathermap.org/data/2.5/forecast?"); // fill in correct http
+            var request = new RestRequest("zip=" + Zip + ",us&APPID=" + EnvironmentVariables.AccountSID, Method.GET);
+
+            //client.Authenticator = new HttpBasicAuthenticator(EnvironmentVariables.AccountSID); // probably dont need because no auth token - just a weather API
             var response = new RestResponse();
             Task.Run(async () =>
             {
                 response = await GetResponseContentAsync(client, request) as RestResponse;
             }).Wait();
-            JObject jsonResponse = JsonConvert.DeserializeObject<Object>(response.Content);
-            var messageList = JsonConvert.DeserializeObject<List<Location>>(jsonResponse["locations"].ToString()); //check if called locations
-            return locationList;
+            JObject jsonResponse = JsonConvert.DeserializeObject<JObject>(response.Content);
+            //var speedList = JsonConvert.DeserializeObject<List<Location>>(jsonResponse["list"].ToString()); //check if called locations
+
+            var speedList = JsonConvert.DeserializeObject<List<Location>>(jsonResponse["list.wind.speed"].ToString()); //check if called locations   --- extra option just incase the other doesnt work.
+            return speedList;
         }
 
         public void Send()
         {
-            var client = new RestClient("hhhttttppp");
-            var request = new RestRequest("Account//{{Account SSID}}/Locations", Method.POST); // Fill these in with weather APp info
-            request.AddParameter(); //choose parameter
-            request.AddParameter(); //choose parameter
-            request.AddParameter(); //choose parameter
-            client.Authenticator = new HttpBasicAuthenticator("{{Account SSID}}", "{{Auth Token}}");
+            var client = new RestClient("http://api.openweathermap.org/data/2.5/forecast?");
+            var request = new RestRequest("zip=" + Zip + ",us&APPID=" + EnvironmentVariables.AccountSID, Method.POST); // Fill these in with weather APp info - do we need an Auth Token?????????
+            request.AddParameter("zip", Zip); //choose parameter
+            //request.AddParameter("speed", Speed); //choose parameter
+            //client.Authenticator = new HttpBasicAuthenticator(EnvironmentVariables.AccountSID); // probably dont need because no auth token - just a weather API
             client.ExecuteAsync(request, response =>
             {
                 Console.WriteLine(response.Content);
